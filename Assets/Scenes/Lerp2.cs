@@ -32,12 +32,11 @@ public class Lerp2 : MonoBehaviour
             // Random start positions
             float r = 25f;
             startPosition[i] = new Vector3(r * Random.Range(-1f, 1f), r * Random.Range(-1f, 1f), r * Random.Range(-1f, 1f));        
-            // Heart shape end position
-            t = i* 2 * Mathf.PI / numSphere;
+            t = i * 2 * Mathf.PI / numSphere;
             endPosition[i] = new Vector3( 
-                        5f*Mathf.Sqrt(2f) * Mathf.Sin(t) *  Mathf.Sin(t) *  Mathf.Sin(t),
-                        5f* (- Mathf.Cos(t) * Mathf.Cos(t) * Mathf.Cos(t) - Mathf.Cos(t) * Mathf.Cos(t) + 2 *Mathf.Cos(t)) + 3f,
-                        10f + Mathf.Sin(time));
+                        16 * Mathf.Pow(Mathf.Sin(t), 3),
+                        13 * Mathf.Cos(t) - 5 * Mathf.Cos(2 * t) - 2 * Mathf.Cos(3 * t) - Mathf.Cos(4 * t),
+                        0);
         }
         // Let there be spheres..
         for (int i =0; i < numSphere; i++){
